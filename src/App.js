@@ -12,6 +12,9 @@ function App() {
       children : [
         {
           path : '/',
+          loader : async()=>{
+            return fetch('')
+          },
           element : <Home></Home>
         }
       ]

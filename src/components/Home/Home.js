@@ -1,9 +1,13 @@
 import React from 'react';
+import { useLoaderData } from 'react-router-dom';
 
 const Home = () => {
-    return (
+  const data = useLoaderData();
+  return (
         <div>
-          <h2>This is home</h2>  
+          {
+            data.map(singleData =><h2 key={singleData.id}>{singleData.title}</h2> )
+          }
         </div>
     );
 };
