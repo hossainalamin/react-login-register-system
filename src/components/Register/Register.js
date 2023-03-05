@@ -1,9 +1,52 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 
 const Register = () => {
+    const registerSubmit = event =>{
+        event.preventDefault();
+        const formValue = event.target;
+        const email = formValue.email.value;
+        const password = formValue.password.value;
+        const name = formValue.name.value;
+        console.log(name, email, password);
+    }
     return (
         <div>
-            <h2>This is register</h2>
+            <div className="hero min-h-screen bg-base-200">
+            <div className="hero-content flex-col lg:flex-row-reverse">
+                <div className="text-center lg:text-left">
+                <h1 className="text-5xl font-bold">Register now!</h1>
+                </div>
+                <div className="card flex-shrink-0 w-full max-w-sm shadow-2xl bg-base-100">
+                <form className="card-body" onSubmit={registerSubmit}>
+                    <div className="form-control">
+                        <label className="label">
+                            <span className="label-text">Name</span>
+                        </label>
+                        <input type="text" placeholder="name" name="name" className="input input-bordered" required/>
+                    </div>
+                    <div className="form-control">
+                    <label className="label">
+                        <span className="label-text">Email</span>
+                    </label>
+                    <input type="text" placeholder="email" name="email" className="input input-bordered" required/>
+                    </div>
+                    <div className="form-control">
+                    <label className="label">
+                        <span className="label-text">Password</span>
+                    </label>
+                    <input type="password" placeholder="password" name="password" className="input input-bordered" />
+                    <label className="label">
+                        <Link to="/login" className="label-text-alt link link-hover">Already, Have an account?</Link>
+                    </label>
+                    </div>
+                    <div className="form-control mt-6">
+                    <button className="btn btn-primary">Login</button>
+                    </div>
+                </form>
+                </div>
+            </div>
+            </div>
         </div>
     );
 };
