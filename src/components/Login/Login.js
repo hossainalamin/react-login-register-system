@@ -10,6 +10,7 @@ const Login = () => {
         loginUser(email,password)
         .then(result =>{
             alert("Login Successfull");
+            formValue.reset();
         })
         .catch(error =>{
             const errorCode = error.code;
