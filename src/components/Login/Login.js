@@ -1,7 +1,9 @@
 import React, { useContext } from 'react';
+import { useNavigate } from 'react-router-dom';
 import { AuthContext } from '../../contexts/UserContext';
 const Login = () => {
     const {loginUser} = useContext(AuthContext);
+    const navigate = useNavigate();
     const loginSubmit = event =>{
         event.preventDefault();
         const formValue = event.target;
@@ -11,6 +13,7 @@ const Login = () => {
         .then(result =>{
             alert("Login Successfull");
             formValue.reset();
+            navigate('/');
         })
         .catch(error =>{
             const errorCode = error.code;
